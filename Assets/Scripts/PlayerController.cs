@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private Animator anim;
     private bool isFacingRight = true;
 
+    public SpriteRenderer [] bonySR;
+
 
   
 

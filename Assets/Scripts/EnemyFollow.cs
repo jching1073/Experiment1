@@ -34,7 +34,7 @@ public class EnemyFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < tooFar)
+        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) < tooFar && PlayerController.instance.gameObject.activeInHierarchy)
         {
             if (Vector2.Distance(transform.position, target.position) > stoppingDistance)
             {
@@ -48,7 +48,7 @@ public class EnemyFollow : MonoBehaviour
                  //transform.Rotate(0f, 180f, 0f);
                  Debug.Log("Trigger");
              }*/
-        }
+
 
             if (target.position.x > transform.position.x && !isFacingRight)
             {
@@ -61,16 +61,17 @@ public class EnemyFollow : MonoBehaviour
                 transform.localScale = new Vector3(transform.localScale.x * -1, transform.localScale.y, transform.localScale.z);
                 isFacingRight = false;
             }
-        
-       
-        
-        if(shouldShoot == true && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < tooFar)
-        {
-            fireCounter -= Time.deltaTime;
-            if(fireCounter <= 0)
+
+
+
+            if (shouldShoot == true && Vector3.Distance(transform.position, PlayerController.instance.transform.position) < tooFar)
             {
-                fireCounter = fireRate;
-                Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
+                fireCounter -= Time.deltaTime;
+                if (fireCounter <= 0)
+                {
+                    fireCounter = fireRate;
+                    Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
+                }
             }
         }
 

@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class TurretBullet : MonoBehaviour
 {
     [SerializeField] private float speed = 7.5f;
     private Vector3 direction;
 
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
-        direction = PlayerController.instance.transform.position - transform.position;
-        direction.Normalize();
+        direction = Vector3.right;
+       
     }
 
     // Update is called once per frame
@@ -24,7 +24,7 @@ public class EnemyBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other) //
     {
-        if(other.tag == "Player")
+        if (other.tag == "Player")
         {
             PlayerHealthController.instance.DamagePlayer();
         }
