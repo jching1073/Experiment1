@@ -11,4 +11,10 @@ public class ButtonHandler : MonoBehaviour
     {
         Application.LoadLevel(sceneToChange);
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+        Debug.Log("Quitting");
+    }
 }

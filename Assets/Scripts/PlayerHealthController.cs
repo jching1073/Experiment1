@@ -10,6 +10,8 @@ public class PlayerHealthController : MonoBehaviour
     public int maxHealth;
     public float damagedInvincibleLength = 1f;
     private float invincCointer;
+
+    public Animator anim;
     
 
     private void Awake()
@@ -61,12 +63,22 @@ public class PlayerHealthController : MonoBehaviour
             }
             if (currentHealth <= 0)
             {
-                PlayerController.instance.gameObject.SetActive(false);
-                UIController.instance.deathScreen.SetActive(true);
-                AudioManager.instance.playGameOver();
+                anim.SetBool("isDead", true);
+                StartCoroutine(deadSequence());
+                
             }
             UIController.instance.healthSlider.value = currentHealth;
             UIController.instance.healthText.text = currentHealth.ToString() + " / " + maxHealth.ToString();
         }
+        
+    }
+
+    
+    public IEnumerator deadSequence()
+    {
+        yield return new WaitForSeconds(2.5f);
+        PlayerController.instance.gameObject.SetActive(false);
+        UIController.instance.deathScreen.SetActive(true);
+        AudioManager.instance.playGameOver();
     }
 }
