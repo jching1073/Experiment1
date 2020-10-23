@@ -32,6 +32,7 @@ public class WeaponFire : MonoBehaviour
     void Shoot()
     {
         Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
+        CameraShake.Instance.ShakeCamera(1.5f, 0.2f);
        // if(Input.get)
     }
     

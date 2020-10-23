@@ -51,6 +51,8 @@ public class PlayerHealthController : MonoBehaviour
 
             invincCointer = damagedInvincibleLength;
 
+            CameraShake.Instance.ShakeCamera(2f, .5f);
+
             for (int i = 0; i < PlayerController.instance.bonySR.Length; i++)
             {
                 PlayerController.instance.bonySR[i].color = new Color(PlayerController.instance.bonySR[i].color.r, PlayerController.instance.bonySR[i].color.g, PlayerController.instance.bonySR[i].color.b, 0.5f);// or (1, 1, 1, 1f)

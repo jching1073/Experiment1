@@ -303,8 +303,8 @@ MonoBehaviour:
   shouldShoot: 1
   bullet: {fileID: 6122643712422106471, guid: 346fce811cdba9842a19294a0138ec54, type: 3}
   firePoint: {fileID: 6844875640263539193}
-  fireRate: 4
-  tooFar: 3
+  fireRate: 3.5
+  tooFar: 10
   anim: {fileID: 6844875640889067475}
 --- !u!95 &6844875640889067475
 Animator:
