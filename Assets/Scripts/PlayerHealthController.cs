@@ -51,6 +51,8 @@ public class PlayerHealthController : MonoBehaviour
 
             invincCointer = damagedInvincibleLength;
 
+            AudioManager.instance.Playsfx(2);
+
             CameraShake.Instance.ShakeCamera(2f, .5f);
 
             for (int i = 0; i < PlayerController.instance.bonySR.Length; i++)
@@ -61,6 +63,7 @@ public class PlayerHealthController : MonoBehaviour
             {
                 PlayerController.instance.gameObject.SetActive(false);
                 UIController.instance.deathScreen.SetActive(true);
+                AudioManager.instance.playGameOver();
             }
             UIController.instance.healthSlider.value = currentHealth;
             UIController.instance.healthText.text = currentHealth.ToString() + " / " + maxHealth.ToString();

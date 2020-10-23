@@ -33,6 +33,7 @@ public class WeaponFire : MonoBehaviour
     {
         Instantiate(bulletToFire, firePoint.position, firePoint.rotation);
         CameraShake.Instance.ShakeCamera(1.5f, 0.2f);
+        AudioManager.instance.Playsfx(0);
        // if(Input.get)
     }
     

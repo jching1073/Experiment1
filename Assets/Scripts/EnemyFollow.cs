@@ -71,6 +71,7 @@ public class EnemyFollow : MonoBehaviour
                 {
                     fireCounter = fireRate;
                     Instantiate(bullet, firePoint.transform.position, firePoint.transform.rotation);
+                    AudioManager.instance.Playsfx(1);
                 }
             }
         }
